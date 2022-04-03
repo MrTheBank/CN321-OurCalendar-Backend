@@ -29,16 +29,10 @@ module.exports.http = {
     *                                                                          *
     ***************************************************************************/
 
-    // order: [
-    //   'cookieParser',
-    //   'session',
-    //   'bodyParser',
-    //   'compress',
-    //   'poweredBy',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    // ],
+    passportInit: require('passport').initialize(),
+    order: [
+      'passportInit',
+    ],
 
 
     /***************************************************************************
