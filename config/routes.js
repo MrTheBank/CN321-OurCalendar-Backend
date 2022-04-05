@@ -12,4 +12,6 @@ module.exports.routes = {
   'GET /auth/google' : 'AuthController.googleAuth',
   'GET /auth/google/callback' : 'AuthController.googleCallback',
   'POST /auth/google/token' : 'AuthController.exchangeToken',
+
+  'GET /user/info' : 'UserController.userInfo',
 };
