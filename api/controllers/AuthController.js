@@ -43,6 +43,25 @@ module.exports = {
       // return res.json(tempToken); // for testing.
       return res.redirect('our://calendar.tu.ac.th?temp=' + tempToken);
     })(req, res, next);
+  },
+  exchangeToken: async function (req, res, next) {
+    if (!req.body.device || !req.body.token) {
+      res.status(403);
+      return res.json({error: '403 Forbidden'});
+    }
+
+    const uniqueId = Buffer.from(req.body.device, 'base64').toString('ascii');
+
+    // Check if unique ID and temporary token is same in database.
+    const respond = await sails.models.temporarytoken.findOne({uniqueId: uniqueId, tempToken: req.body.token});
+    if (respond) {
+      const user = await sails.models.user.findOne({googleId: respond.googleId});
+      await sails.models.temporarytoken.destroyOne({tempToken: req.body.token});
+      return res.json({token: user.appToken});
+    } else {
+      res.status(403);
+      return res.json({error: '403 Forbidden', description: 'Temporary token or device ID not found.'});
+    }
   }
 };
 

@@ -32,6 +32,7 @@ module.exports.http = {
     passportInit: require('passport').initialize(),
     order: [
       'passportInit',
+      'bodyParser'
     ],
 
 
