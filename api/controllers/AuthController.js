@@ -8,8 +8,8 @@
 module.exports = {
   googleAuth: function (req, res, next) {
     if (!req.query.device) {
-      res.status(403);
-      return res.json({error: '403 Forbidden'});
+      res.status(401);
+      return res.json({error: '401 Unauthorized'});
     }
 
     return sails.passport.authenticate('google', {
@@ -22,8 +22,8 @@ module.exports = {
   googleCallback: function (req, res, next) {
     return sails.passport.authenticate('google', async function (err, respond) {
       if (!req.query.state) {
-        res.status(403);
-        return res.json({error: '403 Forbidden'});
+        res.status(401);
+        return res.json({error: '401 Unauthorized'});
       }
       // Generate and store temporary token.
       const tempToken = sails.crypto.randomBytes(16).toString('hex');
@@ -46,8 +46,8 @@ module.exports = {
   },
   exchangeToken: async function (req, res, next) {
     if (!req.body.device || !req.body.token) {
-      res.status(403);
-      return res.json({error: '403 Forbidden'});
+      res.status(401);
+      return res.json({error: '401 Unauthorized'});
     }
 
     const uniqueId = Buffer.from(req.body.device, 'base64').toString('ascii');
@@ -59,8 +59,8 @@ module.exports = {
       await sails.models.temporarytoken.destroyOne({tempToken: req.body.token});
       return res.json({token: user.appToken});
     } else {
-      res.status(403);
-      return res.json({error: '403 Forbidden', description: 'Temporary token or device ID not found.'});
+      res.status(401);
+      return res.json({error: '401 Unauthorized', description: 'Temporary token or device ID not found.'});
     }
   }
 };
