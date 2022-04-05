@@ -15,6 +15,7 @@ module.exports = {
     return sails.passport.authenticate('google', {
       scope: ['profile', 'email', 'https://www.googleapis.com/auth/calendar'],
       accessType: 'offline',
+      prompt : 'consent',
       state: req.query.device
     })(req, res, next);
   },
@@ -39,7 +40,7 @@ module.exports = {
         await sails.models.user.create({googleId: respond.profile.id, appToken: appToken, device: [uniqueId], refreshToken: respond.refreshToken});
       }
 
-      //return res.json(tempToken); // for testing.
+      // return res.json(tempToken); // for testing.
       return res.redirect('our://calendar.tu.ac.th?temp=' + tempToken);
     })(req, res, next);
   }
