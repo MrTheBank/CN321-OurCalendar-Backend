@@ -14,4 +14,6 @@ module.exports.routes = {
   'POST /auth/google/token' : 'AuthController.exchangeToken',
 
   'GET /user/info' : 'UserController.userInfo',
+  'POST /user/export' : 'UserController.userExport',
+  'get /user/import' : 'UserController.userImport',
 };
