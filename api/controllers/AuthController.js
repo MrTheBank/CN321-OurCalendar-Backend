@@ -13,7 +13,7 @@ module.exports = {
     }
 
     return sails.passport.authenticate('google', {
-      scope: ['profile', 'email', 'https://www.googleapis.com/auth/calendar'],
+      scope: ['profile', 'email', 'https://www.googleapis.com/auth/calendar.readonly'],
       accessType: 'offline',
       prompt : 'consent',
       state: req.query.device
@@ -21,7 +21,7 @@ module.exports = {
   },
   googleCallback: function (req, res, next) {
     return sails.passport.authenticate('google', async function (err, respond) {
-      if (!req.query.state) {
+      if (!req.query.state || req.query.error === 'access_denied') {
         res.status(401);
         return res.json({error: '401 Unauthorized'});
       }
