@@ -15,5 +15,7 @@ module.exports.routes = {
 
   'GET /user/info' : 'UserController.userInfo',
   'POST /user/export' : 'UserController.userExport',
-  'get /user/import' : 'UserController.userImport',
+  'GET /user/import' : 'UserController.userImport',
+
+  'GET /calendar/list' : 'CalendarController.eventsList',
 };
