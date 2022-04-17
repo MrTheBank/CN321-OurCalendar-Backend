@@ -20,7 +20,6 @@ module.exports = {
     },
     teamIcon: {
       type: 'string',
-      required: true
     },
     teamMember: {
       type: 'json',

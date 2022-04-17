@@ -18,4 +18,9 @@ module.exports.routes = {
   'GET /user/import' : 'UserController.userImport',
 
   'GET /calendar/list' : 'CalendarController.eventsList',
+
+  'POST /team/create' : 'TeamController.createTeam',
+  'POST /team/join' : 'TeamController.joinTeam',
+  'POST /team/leave' : 'TeamController.leaveTeam',
+  'GET /team/info' : 'TeamController.teamInfo',
 };
