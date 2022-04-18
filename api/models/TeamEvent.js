@@ -7,6 +7,8 @@
 
 module.exports = {
 
+  tableName: 'team_events',
+
   attributes: {
     teamId: {
       type: 'string',

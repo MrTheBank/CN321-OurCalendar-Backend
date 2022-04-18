@@ -16,7 +16,6 @@ module.exports = {
     },
     teamName: {
       type: 'string',
-      required: true
     },
     teamIcon: {
       type: 'string',

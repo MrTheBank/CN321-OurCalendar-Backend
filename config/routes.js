@@ -23,4 +23,9 @@ module.exports.routes = {
   'POST /team/join' : 'TeamController.joinTeam',
   'POST /team/leave' : 'TeamController.leaveTeam',
   'GET /team/info' : 'TeamController.teamInfo',
+
+  'POST /team/event/add' : 'TeamEventController.addEvent',
+  'POST /team/event/edit' : 'TeamEventController.editEvent',
+  'POST /team/event/delete' : 'TeamEventController.deleteEvent',
+  'GET /team/event/list' : 'TeamEventController.eventsList',
 };
