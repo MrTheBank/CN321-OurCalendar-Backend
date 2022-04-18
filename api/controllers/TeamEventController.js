@@ -75,20 +75,20 @@ module.exports = {
     return res.json({error: '401 Unauthorized'});
   },
   eventsList: async function (req, res, next) {
-    if (!req.query.team_id) {
+    if (!req.query.team_id || !req.query.type) {
       res.status(401);
       return res.json({error: '401 Unauthorized'});
     }
 
     const user = await sails.models.user.findOne({appToken: req.headers.authorization});
-    const events = await sails.models.teamevent.find({teamId: req.query.team_id});
+    const events = await sails.models.teamevent.find({teamId: req.query.team_id, type: req.query.type});
     const team = await sails.models.team.findOne({teamId: req.query.team_id});
 
     if (team) {
       if (team.teamMember.some(i => i === user.googleId)) {
         let event = {};
         await Promise.all(events.map(i => {
-          event = {...event, [i.eventId]: i.event}
+          event = {...event, [i.eventId]: {id: i.eventId, ...i.event}}
         }));
 
         return res.json(event);
