@@ -18,5 +18,7 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': true,
-
+  'user/*': 'authorizationToken',
+  'calendar/*': 'authorizationToken',
+  'team/*': 'authorizationToken'
 };

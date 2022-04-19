@@ -26,5 +26,7 @@ module.exports.bootstrap = async function() {
   //   // etc.
   // ]);
   // ```
-
+  sails.passport = require('passport');
+  sails.crypto = require('crypto');
+  sails.axios = require('axios');
 };
