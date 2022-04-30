@@ -1,26 +1,19 @@
-# cn-321-our-calendar-backend
+# CN321 Our Calendar API
 
-a [Sails v1](https://sailsjs.com) application
+## About The Project
+Our calendar is an application that helps you organize your life plan.<br />
+This project aims to develop the backend of the application "Our Calendar".
 
+### Built With
+* [Sails.js](https://sailsjs.com)
 
-### Links
+### Prerequisites
+* node.js (>=16)
+* MongoDB (>=4.4)
+* Google Calendar API Key
 
-+ [Sails framework documentation](https://sailsjs.com/get-started)
-+ [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
-+ [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
-+ [Community support options](https://sailsjs.com/support)
-+ [Professional / enterprise options](https://sailsjs.com/enterprise)
+### License
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-
-### Version info
-
-This app was originally generated on Sat Mar 19 2022 19:22:43 GMT+0700 (Indochina Time) using Sails v1.5.2.
-
-<!-- Internally, Sails used [`sails-generate@2.0.6`](https://github.com/balderdashy/sails-generate/tree/v2.0.6/lib/core-generators/new). -->
-
-
-
-<!--
-Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
--->
-
+### Contact
+we.are.sahai@gmail.com
